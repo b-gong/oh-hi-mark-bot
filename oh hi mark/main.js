@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { prefix, token, target} = require('./config.json');
 const fs = require('fs');
 
 const client = new Discord.Client();
@@ -34,7 +34,7 @@ client.on('message', async message => {
 });
 
 client.on("voiceStateUpdate", (oldtate, newState) => { // Listeing to the voiceStateUpdate event
-  if (newState.channelID === activeChannel && newState.id === '318104201513140224') { // The member connected to a channel.
+  if (newState.channelID === activeChannel && newState.id === target) { // The member connected to a channel.
 		play();
   }
 });
